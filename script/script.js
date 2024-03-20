@@ -14,9 +14,33 @@ const collectEmployees = function (event) {
   while (keepAdding) {
     // Prompt user in windows for the first name, last name, and salary.
     for (var i = 0; i < 3; i++) {
-      let firstName = window.prompt("Enter a First Name.");
-      let lastName = window.prompt("Enter a Last Name.");
-      let salary = window.prompt("Enter a salary.");
+
+      let firstName, lastName, salary;
+
+      // add data validation to avoid errors
+      // nested while loop to keep asking until true
+      while(true){
+        firstName = window.prompt("Enter a First Name.");
+        lastName = window.prompt("Enter a Last Name.");
+        salary = window.prompt("Enter a salary.");
+
+        // check if string
+        if(typeof firstName === `string` && typeof lastName === `string` && !isNaN(parseFloat(salary))){
+          
+          // Capitalize the first letter of first name and last name
+          // before adding to array
+          firstName = capitalizeFirstLetter(firstName);
+          lastName = capitalizeFirstLetter(lastName);
+
+          // Convert to number input is a string not a number
+          salary = parseFloat(salary);
+          break; // Exit the loop if input is valid
+        } else {
+          // Re-ask prompt with proper error message
+          alert("First and last names should be letters, and salary should be a number.");
+        }
+        }
+      }
 
       // continue? While loop exit.
       keepAdding = window.confirm("Would you like to continue?");
@@ -29,11 +53,6 @@ const collectEmployees = function (event) {
         employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
         return employeesArray;
       }
-
-      // Capitalize the first letter of first name and last name
-      // before adding to array
-      firstName = capitalizeFirstLetter(firstName);
-      lastName = capitalizeFirstLetter(lastName);
 
       // Create Object that contains employee data.
       var employee = {
