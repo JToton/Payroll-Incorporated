@@ -1,67 +1,55 @@
 // Get a reference to the #add-employees-btn element.
 const addEmployeesBtn = document.querySelector("#add-employees-btn");
 
-// Collect employee data / Create array here to make accessible to other funcs.
-var employeesArray = [];
+// Collect employee data.
 
-//Control While Loop
-let keepAdding = true;
+const employeeData = {
+  userChoicefName: "Jake",
+  userChoicelName: "Toton",
+  userChoiceSalary: 10000,
+};
 
 // TODO: Get user input to create and return an array of employee objects.
+
+var keepAdding = true;
+
 const collectEmployees = function (event) {
   console.log(event);
+
+  //While loop to control input until quit.
   while (keepAdding) {
-    //Prompt user in windows for the first name, last name, and salary.
+    // Initialize an empty array to store the objects
+    var arrayOfObjects = [];
+
+    // Prompt the user for input three times
     for (var i = 0; i < 3; i++) {
-      let firstName = window.prompt("Enter a First Name.");
-      let lastName = window.prompt("Enter a Last Name.");
-      let salary = window.prompt("Enter a salary.");
+      var firstName = window.prompt("Enter first name:");
+      var lastName = window.prompt("Enter last name:");
+      var salary = window.prompt("Enter salary:");
 
-      //continue?
-      keepAdding = window.confirm("Would you like to continue?");
-
-      //Create Object that contains employee data.
-      var employee = {
-        fName: firstName,
-        lName: lastName,
-        sal: salary,
+      // Create an object with the user inputs
+      var person = {
+        name: firstName,
+        age: lastName,
+        occupation: salary,
       };
 
-      //add employee data to array.
-      employeesArray.push(employee);
+      // Add the object to the array
+      arrayOfObjects.push(person);
     }
-    //Where I call to add employees on screen
-    if (!keepAdding) {
-      return;
-    }
+
+    // Output the array of objects
+    console.log("Array of Objects:", arrayOfObjects);
   }
 
-  // Display the average salary
+  // Display the average salary.
   const displayAverageSalary = function (employeesArray) {
-    // TODO: Calculate and display the average salary
-
-    var totalSalary = 0;
-    for (let i = 0; i < employeesArray.length; i++) {
-      totalSalary += employeesArray[1].sal;
-    }
-
-    var averageSalary = totalSalary / employeesArray.length;
-
-    return `The average employee salary between our ${employeesArray.length} employee(s) is ${averageSalary}`;
+    // TODO: Calculate and display the average salary.
   };
 
   // Select a random employee
   const getRandomEmployee = function (employeesArray) {
-    // TODO: Select and display a random employee
-
-    //create inital variable for index
-    var arrayIndex = Math.floor(Math.random() * employeesArray.length);
-
-    //create inital variable for employee chosen
-    var chosenEmployee = employeesArray[arrayIndex];
-
-    //return acceptance criteria string with variable
-    return `Congraduations to ${chosenEmployee.fName} ${chosenEmployee.lName}, our random drawing winner!`;
+    // TODO: Select and display a random employee.
   };
 
   /*
@@ -70,7 +58,7 @@ const collectEmployees = function (event) {
   Do not modify any of the code below this line:
 */
 
-  // Display employee data in an HTML table
+  // Display employee data in an HTML table.
   const displayEmployees = function (employeesArray) {
     // Get the employee table
     const employeeTable = document.querySelector("#employee-table");
@@ -127,9 +115,7 @@ const collectEmployees = function (event) {
     displayEmployees(employees);
   };
 
-  // Add event listener to 'Add Employees' button
+  // Add event listener to 'Add Employees' button.
 };
 
 addEmployeesBtn.addEventListener(`click`, collectEmployees);
-console.log("Array of Objects:", employeesArray);
-trackEmployeeData();
