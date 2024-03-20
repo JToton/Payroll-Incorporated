@@ -32,7 +32,8 @@ const collectEmployees = function (event) {
     }
     //Where I call to add employees on screen
     if (!keepAdding) {
-      return;
+      return employeesArray;
+      trackEmployeeData();
     }
   }
 
@@ -132,4 +133,4 @@ const collectEmployees = function (event) {
 
 addEmployeesBtn.addEventListener(`click`, collectEmployees);
 console.log("Array of Objects:", employeesArray);
-trackEmployeeData();
+//trackEmployeeData();
