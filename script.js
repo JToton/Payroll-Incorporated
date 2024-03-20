@@ -10,6 +10,7 @@ let keepAdding = true;
 // Data Collection Function:
 const collectEmployees = function (event) {
   console.log(event);
+
   while (keepAdding) {
     // Prompt user in windows for the first name, last name, and salary.
     for (var i = 0; i < 3; i++) {
@@ -22,8 +23,17 @@ const collectEmployees = function (event) {
 
       // check for loop exit
       if (!keepAdding) {
+        // Sort employeesArray by last name
+        // Compare two array objects one at at time by last names ( letter => next letter)
+        // Information Sourced from https://w3schools.com/
+        employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
         return employeesArray;
       }
+
+      // Capitalize the first letter of first name and last name
+      // before adding to array
+      firstName = capitalizeFirstLetter(firstName);
+      lastName = capitalizeFirstLetter(lastName);
 
       // Create Object that contains employee data.
       var employee = {
@@ -37,6 +47,12 @@ const collectEmployees = function (event) {
     }
   }
 };
+
+// Function to capitalize the first letter in both firstName & lastName
+// Cap character zero (first) , then slice to retain the rest and add together.
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 // Average Salary Function:
 const displayAverageSalary = function (employeesArray) {
