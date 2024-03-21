@@ -7,7 +7,7 @@ var employeesArray = [];
 // Control While Loop
 let keepAdding = true;
 
-// Collect Employees Function-
+// Collect Employees Function:
 const collectEmployees = function (event) {
   console.log(event);
 
@@ -56,6 +56,7 @@ const collectEmployees = function (event) {
   }
 
   // Sort employeesArray by last name.
+  // USe comparison operators to verify.  Letter => to next letter, etc.
   employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
 
   return employeesArray;
