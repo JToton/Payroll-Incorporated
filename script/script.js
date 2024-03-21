@@ -16,22 +16,38 @@ const collectEmployees = function (event) {
     for (var i = 0; i < 3; i++) {
       let firstName = window.prompt("Enter a First Name.");
       let lastName = window.prompt("Enter a Last Name.");
-      let salary = window.prompt("Enter a salary.");
+      let salary;
+
+      // Loop until salary input.
+      while (true) {
+        salary = window.prompt("Enter a salary.");
+
+        // Check if salary is a number or can be converted to a number.
+        // Convert salary to a number.
+        if (!isNaN(parseFloat(salary))) {
+          salary = parseFloat(salary);
+          break;
+        } else {
+          // Make zero
+          salary = 0;
+          break;
+        }
+      }
 
       // continue? While loop exit.
       keepAdding = window.confirm("Would you like to continue?");
 
       // check for loop exit
       if (!keepAdding) {
-        // Sort employeesArray by last name
-        // Compare two array objects one at at time by last names ( letter => next letter)
+        // Sort employeesArray by last name.
+        // Compare two array objects one at at time by last names ( letter => next letter).
         // Information Sourced from https://w3schools.com/
         employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
         return employeesArray;
       }
 
-      // Capitalize the first letter of first name and last name
-      // before adding to array
+      // Capitalize the first letter of first name and last name.
+      // before adding to array.
       firstName = capitalizeFirstLetter(firstName);
       lastName = capitalizeFirstLetter(lastName);
 
@@ -63,8 +79,12 @@ const displayAverageSalary = function (employeesArray) {
     totalSalary += parseInt(employeesArray[i].sal);
   }
 
-  // Average Calculation
-  var averageSalary = totalSalary / employeesArray.length;
+  // Average Calculation rounded to 2 decimals
+  var averageSalary = (totalSalary / employeesArray.length).toFixed(2);
+
+  //USD Conversion
+  averageSalary =
+    "$" + averageSalary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   console.log(
     `The average employee salary between our ${employeesArray.length} employee(s) is ${averageSalary}`
