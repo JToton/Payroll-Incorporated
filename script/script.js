@@ -7,61 +7,58 @@ var employeesArray = [];
 // Control While Loop
 let keepAdding = true;
 
-// Data Collection Function:
+// Collect Employees Function-
 const collectEmployees = function (event) {
   console.log(event);
 
-  while (keepAdding) {
-    // Prompt user in windows for the first name, last name, and salary.
-    for (var i = 0; i < 3; i++) {
-      let firstName = window.prompt("Enter a First Name.");
-      let lastName = window.prompt("Enter a Last Name.");
-      let salary;
+  while (true) {
+    let firstName = window.prompt("Enter a First Name.");
+    let lastName = window.prompt("Enter a Last Name.");
+    let salary;
 
-      // Loop until salary input.
-      while (true) {
-        salary = window.prompt("Enter a salary.");
+    // Loop until valid salary input.
+    while (true) {
+      salary = window.prompt("Enter a salary.");
 
-        // Check if salary is a number or can be converted to a number.
-        // Convert salary to a number.
-        if (!isNaN(parseFloat(salary))) {
-          salary = parseFloat(salary);
-          break;
-        } else {
-          // Make zero
-          salary = 0;
-          break;
-        }
+      // Check if salary is a number or can be converted to a number.
+      // Convert salary to a number.
+      if (!isNaN(parseFloat(salary))) {
+        salary = parseFloat(salary);
+        break;
+      } else {
+        // Make zero
+        salary = 0;
+        break;
       }
+    }
 
-      // continue? While loop exit.
-      keepAdding = window.confirm("Would you like to continue?");
+    // Capitalize the first letter of first name and last name.
+    firstName = capitalizeFirstLetter(firstName);
+    lastName = capitalizeFirstLetter(lastName);
 
-      // check for loop exit
-      if (!keepAdding) {
-        // Sort employeesArray by last name.
-        // Compare two array objects one at at time by last names ( letter => next letter).
-        // Information Sourced from https://w3schools.com/
-        employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
-        return employeesArray;
-      }
+    // Create Object that contains employee data.
+    var employee = {
+      firstName: firstName,
+      lastName: lastName,
+      sal: salary,
+    };
 
-      // Capitalize the first letter of first name and last name.
-      // before adding to array.
-      firstName = capitalizeFirstLetter(firstName);
-      lastName = capitalizeFirstLetter(lastName);
+    // Add employee data to array.
+    employeesArray.push(employee);
 
-      // Create Object that contains employee data.
-      var employee = {
-        firstName: firstName,
-        lastName: lastName,
-        sal: salary,
-      };
+    // Prompt to continue
+    keepAdding = window.confirm("Would you like to add another employee?");
 
-      // add employee data to array.
-      employeesArray.push(employee);
+    // If user does not want to continue, break the loop
+    if (!keepAdding) {
+      break;
     }
   }
+
+  // Sort employeesArray by last name.
+  employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+  return employeesArray;
 };
 
 // Function to capitalize the first letter in both firstName & lastName
