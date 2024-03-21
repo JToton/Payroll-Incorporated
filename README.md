@@ -125,7 +125,9 @@ through slack and or discord.
 • JavaScript string Methods. (n.d.). https://www.w3schools.com/js/js_string_methods.asp
 
 • JavaScript String slice() Method. (n.d.). https://www.w3schools.com/jsref/jsref_slice_string.asp#:~:text=The%20slice()%20method%20extracts,second%20is%201%2C%20.
-• Pierce, D. (2022, November 28). How to resolve an uncaught reference error in Javascript | Rollbar. Rollbar. https://rollbar.com/blog/javascript-referenceerror/#:~:text=Reference%20errors%20in%20Javascript%20are%20mainly%20thrown%20when%20an%20attempt,called%20in%20the%20correct%20scope.
+• Pierce, D. (2022, November 28). 
+
+• How to resolve an uncaught reference error in Javascript | Rollbar. Rollbar. https://rollbar.com/blog/javascript-referenceerror/#:~:text=Reference%20errors%20in%20Javascript%20are%20mainly%20thrown%20when%20an%20attempt,called%20in%20the%20correct%20scope.
 
 • return - JavaScript | MDN. (2023, August 11). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return
 
