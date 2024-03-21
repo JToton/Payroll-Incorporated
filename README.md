@@ -55,7 +55,7 @@ Additionally, more information on how lead generation, brand awareness and cost 
 
 ## Mockup
 
-![Alt text](assets/images/WebScreenShot/WebScreenShot.PNG) - upload new picture later when deployed
+![Alt text](images/webScreenShot.PNG) - upload new picture later when deployed
 
 ## Features
 
