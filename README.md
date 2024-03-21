@@ -128,3 +128,11 @@ through slack and or discord.
 • Pierce, D. (2022, November 28). How to resolve an uncaught reference error in Javascript | Rollbar. Rollbar. https://rollbar.com/blog/javascript-referenceerror/#:~:text=Reference%20errors%20in%20Javascript%20are%20mainly%20thrown%20when%20an%20attempt,called%20in%20the%20correct%20scope.
 
 • return - JavaScript | MDN. (2023, August 11). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return
+
+• GfG. (2023, December 7). Check if a variable is a string using JavaScript. GeeksforGeeks. https://www.geeksforgeeks.org/check-if-a-variable-is-a-string-using-javascript/ 
+
+• ISNAN() - JavaScript | MDN. (2023, December 29). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN 
+
+• return - JavaScript | MDN. (2023, August 11). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return 
+
+• while - JavaScript | MDN. (2023, September 10). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
